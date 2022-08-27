@@ -1,0 +1,8 @@
+JAVA MVC: https://sourcecodefree.org/source-detail/source-code-website-he-thong-ban-hang-thong-ke-bao-cao-gio-hang-dat-hang-thanh-toan-java-spring-mvc-hibernate.html
+JAVA SPRING BOOT + REACT (FEE):  https://sharecode.vn/source-code/bookstore-ecommerce-website-29464.htm
+GITHUB SPRING BOOT + REACT (free): https://github.com/RameshMF/ReactJS-Spring-Boot-CRUD-Full-Stack-App/tree/master/react-frontend
+					   : https://www.youtube.com/watch?v=O_XL9oQ1_To
+					   : https://github.com/shabbirdwd53/employee-management-service-tutorial   - https://www.youtube.com/watch?v=J3iiiLrT1ic
+			+ AWS          : https://www.youtube.com/watch?v=i-hoSg8iRG0
+			+ MONGODB      : https://www.youtube.com/watch?v=EqkyhqvvOKo
+					   : https://www.youtube.com/watch?v=vrcENHjSmN0   +  https://github.com/itsmaheshkariya/spring-boot-mongodb-react-crud
