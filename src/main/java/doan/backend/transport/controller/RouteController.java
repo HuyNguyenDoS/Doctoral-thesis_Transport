@@ -14,19 +14,29 @@ public class RouteController {
     @Autowired
     RouteService routeService;
 
-    @RequestMapping(value = "/route/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getUserById(@PathVariable("id") int id){
+    @RequestMapping(value = "/routes/{routerId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getUserById(@PathVariable("routerId") int id){
         return ResponseEntity.ok(routeService.findById(id));
     }
 
-    @RequestMapping(value = "/route/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/routes", method = RequestMethod.GET)
     public ResponseEntity<?> getListUser(){
         List<TicketappRoute> getList = routeService.getList();
         return ResponseEntity.ok(getList);
     }
 
     @PostMapping("/route/add")
-    public void insertComment(@ModelAttribute TicketappRoute route) {
+    public void insertComment(@RequestBody TicketappRoute route) {
         routeService.insert(route);
+    }
+
+    @PutMapping("/route/update")
+    public void update(@RequestBody TicketappRoute route) {
+        routeService.update(route);
+    }
+
+    @DeleteMapping("/route/delete/{id}")
+    public void delete(@PathVariable int id) {
+        routeService.delete(id);
     }
 }

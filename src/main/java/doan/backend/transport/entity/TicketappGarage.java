@@ -1,7 +1,9 @@
 package doan.backend.transport.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
-import java.time.Instant;
+import java.util.Date;
 
 @Table(name = "ticketapp_garage", indexes = {
         @Index(name = "address", columnList = "address", unique = true),
@@ -18,10 +20,7 @@ public class TicketappGarage {
     private Boolean active = false;
 
     @Column(name = "created_date", nullable = false)
-    private Instant createdDate;
-
-    @Column(name = "updated_date", nullable = false)
-    private Instant updatedDate;
+    private Date createdDate;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -36,6 +35,13 @@ public class TicketappGarage {
     @ManyToOne(optional = false)
     @JoinColumn(name = "districtID_id", nullable = false)
     private TicketappDistrict districtID;
+
+    @Transient
+    private MultipartFile file;
+
+    {
+        active = true;
+    }
 
     public TicketappDistrict getDistrictID() {
         return districtID;
@@ -69,19 +75,11 @@ public class TicketappGarage {
         this.name = name;
     }
 
-    public Instant getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Instant updatedDate) {
-        this.updatedDate = updatedDate;
-    }
-
-    public Instant getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Instant createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

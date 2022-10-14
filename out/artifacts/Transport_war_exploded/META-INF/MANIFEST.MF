@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: HUY NGUYEN
+Build-Jdk: version 18.0.2
+Implementation-Title: Transport
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: doan.backend
+Main-Class: ${start-class}
+

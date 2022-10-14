@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 public class SeatController {
     @Autowired
@@ -16,13 +17,19 @@ public class SeatController {
     @Autowired
     TicketappTypebusRepository ticketappTypebusRepository;
 
+    @GetMapping("/typebuss/seat/{typebusID}")
+    public ResponseEntity<?> getListByTourId(@PathVariable int typebusID){
+        List<TicketappSeat> listPlace = seatService.findSeatOfTypebus(typebusID);
+        return ResponseEntity.ok(listPlace);
+    }
+
     @PostMapping("/seat/add")
     public void insertCity(@RequestBody TicketappSeat seat) {
         seatService.insert(seat);
     }
 
-    @RequestMapping(value = "/seat/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getById(@PathVariable("id") int id){
+    @RequestMapping(value = "/seats/{seatId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getById(@PathVariable("seatId") int id){
         return ResponseEntity.ok(seatService.findById(id));
     }
 

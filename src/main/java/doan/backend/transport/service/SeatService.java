@@ -2,7 +2,6 @@ package doan.backend.transport.service;
 
 import doan.backend.transport.entity.TicketappSeat;
 import doan.backend.transport.repository.TicketappSeatRepository;
-import doan.backend.transport.repository.TicketappTypebusRepository;
 import doan.backend.transport.repository.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +13,11 @@ import java.util.Optional;
 public class SeatService implements dao<TicketappSeat> {
     @Autowired
     TicketappSeatRepository seatRepository;
-    @Autowired
-    TicketappTypebusRepository ticketappTypebusRepository;
+
+    public List<TicketappSeat> findSeatOfTypebus(int id)
+    {
+        return seatRepository.findSeatOfTypebus(id);
+    }
 
     @Override
     public List<TicketappSeat> getList() {

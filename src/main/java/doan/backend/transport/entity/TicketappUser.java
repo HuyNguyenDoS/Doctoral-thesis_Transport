@@ -55,10 +55,17 @@ public class TicketappUser {
     @JoinColumn(name = "garageID_id")
     private TicketappGarage garageID;
 
+//    @Transient
+//    private MultipartFile file;
+//    {
+//        userRole = "customer";
+//    }
+
     @Transient
     private MultipartFile file;
+
     {
-        userRole = "customer";
+        isActive = true;
     }
 
     public TicketappGarage getGarageID() {

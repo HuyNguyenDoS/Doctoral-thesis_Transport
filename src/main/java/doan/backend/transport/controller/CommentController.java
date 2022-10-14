@@ -14,17 +14,29 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
+    @RequestMapping(value = "/busroutes/comment/{routeID}", method = RequestMethod.GET)
+    public ResponseEntity<?> findCommentOfRoute(@PathVariable int routeID){
+        List<TicketappComment> list = commentService.findCommentOfRoute(routeID);
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/busroutes/last-comment", method = RequestMethod.GET)
+    public ResponseEntity<?> findCommentOfRoute(){
+        List<TicketappComment> list = commentService.findLastComment();
+        return ResponseEntity.ok(list);
+    }
+
     @PostMapping("/comment/insert")
     public void insertCity(@RequestBody TicketappComment comment) {
         commentService.insert(comment);
     }
 
-    @RequestMapping(value = "/comment/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/comments/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getById(@PathVariable("id") int id){
         return ResponseEntity.ok(commentService.findById(id));
     }
 
-    @RequestMapping(value = "/comment/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/comments", method = RequestMethod.GET)
     public ResponseEntity<?> getList(){
         List<TicketappComment> getList = commentService.getList();
         return ResponseEntity.ok(getList);

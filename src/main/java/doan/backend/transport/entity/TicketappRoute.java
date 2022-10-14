@@ -1,7 +1,7 @@
 package doan.backend.transport.entity;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.util.Date;
 
 @Table(name = "ticketapp_route", indexes = {
         @Index(name = "ticketapp_route_city_from_id_to_garage_id_725e3b00_uniq", columnList = "city_from_id, to_garage_id", unique = true)
@@ -17,10 +17,7 @@ public class TicketappRoute {
     private Boolean active = false;
 
     @Column(name = "created_date", nullable = false)
-    private Instant createdDate;
-
-    @Column(name = "updated_date", nullable = false)
-    private Instant updatedDate;
+    private Date createdDate;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "city_from_id", nullable = false)
@@ -68,19 +65,11 @@ public class TicketappRoute {
         this.cityFrom = cityFrom;
     }
 
-    public Instant getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Instant updatedDate) {
-        this.updatedDate = updatedDate;
-    }
-
-    public Instant getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Instant createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

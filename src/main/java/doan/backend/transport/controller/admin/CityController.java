@@ -24,7 +24,7 @@ public class CityController {
         return ResponseEntity.ok(cityService.findById(id));
     }
 
-    @RequestMapping(value = "/city/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/city", method = RequestMethod.GET)
     public ResponseEntity<?> getList(){
         List<TicketappCity> getList = cityService.getList();
         return ResponseEntity.ok(getList);

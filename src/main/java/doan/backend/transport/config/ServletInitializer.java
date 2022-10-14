@@ -1,0 +1,13 @@
+package doan.backend.transport.config;
+
+import doan.backend.transport.TransportApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+public class ServletInitializer extends SpringBootServletInitializer {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
+    {
+        return application.sources(TransportApplication.class);
+    }
+}

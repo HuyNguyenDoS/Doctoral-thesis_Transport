@@ -15,6 +15,11 @@ public class BookingService implements dao<TicketappBooking> {
     @Autowired
     TicketappBookingRepository ticketappBookingRepository;
 
+    public List<TicketappBooking> findBookingOfTimetable(int id)
+    {
+        return ticketappBookingRepository.findBookingOfTimetable(id);
+    }
+
     @Override
     public List<TicketappBooking> getList() {
         return ticketappBookingRepository.findAll();

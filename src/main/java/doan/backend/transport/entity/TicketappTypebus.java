@@ -1,9 +1,9 @@
 package doan.backend.transport.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.util.Date;
 
 @Table(name = "ticketapp_typebus", indexes = {
         @Index(name = "name", columnList = "name", unique = true)
@@ -19,13 +19,17 @@ public class TicketappTypebus {
     private Boolean active = false;
 
     @Column(name = "created_date", nullable = false)
-    private Instant createdDate;
-
-    @Column(name = "updated_date", nullable = false)
-    private Instant updatedDate;
+    private Date createdDate;
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Transient
+    private MultipartFile file;
+
+    {
+        active = true;
+    }
 
     public String getName() {
         return name;
@@ -35,19 +39,11 @@ public class TicketappTypebus {
         this.name = name;
     }
 
-    public Instant getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Instant updatedDate) {
-        this.updatedDate = updatedDate;
-    }
-
-    public Instant getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Instant createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

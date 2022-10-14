@@ -15,17 +15,23 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
+    @GetMapping("/timetables/booking/{timetableID}")
+    public ResponseEntity<?> getListByTourId(@PathVariable int timetableID){
+        List<TicketappBooking> listPlace = bookingService.findBookingOfTimetable(timetableID);
+        return ResponseEntity.ok(listPlace);
+    }
+
     @PostMapping("/booking/new_booking")
     public void insertCity(@RequestBody TicketappBooking booking) {
         bookingService.insert(booking);
     }
 
-    @RequestMapping(value = "/booking/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/bookings/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getById(@PathVariable("id") int id){
         return ResponseEntity.ok(bookingService.findById(id));
     }
 
-    @RequestMapping(value = "/booking/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/bookings", method = RequestMethod.GET)
     public ResponseEntity<?> getList(){
         List<TicketappBooking> getList = bookingService.getList();
         return ResponseEntity.ok(getList);

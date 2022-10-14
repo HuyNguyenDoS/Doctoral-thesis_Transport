@@ -15,6 +15,16 @@ public class CommentService implements dao<TicketappComment> {
     @Autowired
     TicketappCommentRepository ticketappCommentRepository;
 
+    public List<TicketappComment> findCommentOfRoute(int id)
+    {
+        return ticketappCommentRepository.findCommentOfRoute(id);
+    }
+
+    public List<TicketappComment> findLastComment()
+    {
+        return ticketappCommentRepository.findLastComment();
+    }
+
     @Override
     public List<TicketappComment> getList() {
         return ticketappCommentRepository.findAll();
